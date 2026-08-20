@@ -340,16 +340,6 @@ The `FareCalculator` can execute multiple strategies sequentially.
 
 This makes it easy to introduce new pricing rules without heavily modifying existing code.
 
-Possible future strategies:
-
-```text
-WeekendFareStrategy
-HolidayFareStrategy
-VIPFareStrategy
-LongStayDiscountStrategy
-ElectricVehicleStrategy
-```
-
 ---
 
 # 🔄 Vehicle Lifecycle
