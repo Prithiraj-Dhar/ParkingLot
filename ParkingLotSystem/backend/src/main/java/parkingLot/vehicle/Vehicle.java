@@ -1,4 +1,4 @@
-package main.java.parkingLot.vehicle;
+package src.main.java.parkingLot.vehicle;
 
 public interface Vehicle {
 

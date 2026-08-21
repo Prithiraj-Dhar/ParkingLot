@@ -1,14 +1,14 @@
-package main.java.parkingLot.spot;
+package src.main.java.parkingLot.spot;
 
-import main.java.parkingLot.vehicle.Vehicle;
-import main.java.parkingLot.vehicle.VehicleSize;
+import src.main.java.parkingLot.vehicle.Vehicle;
+import src.main.java.parkingLot.vehicle.VehicleSize;
 
-public class RegularSpot implements ParkingSpot {
+public class CompactSpot implements ParkingSpot {
 
-    private final int spotNumber;
+    private int spotNumber;
     private Vehicle vehicle;
 
-    public RegularSpot(int spotNumber) {
+    public CompactSpot(int spotNumber) {
         this.spotNumber = spotNumber;
         this.vehicle = null;
     }
@@ -37,6 +37,6 @@ public class RegularSpot implements ParkingSpot {
 
     @Override
     public VehicleSize getSize() {
-        return VehicleSize.MEDIUM;
+        return VehicleSize.SMALL;
     }
 }

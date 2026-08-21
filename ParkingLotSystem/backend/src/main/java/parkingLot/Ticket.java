@@ -1,9 +1,7 @@
-package main.java.parkingLot;
+package src.main.java.parkingLot;
 
-import main.java.parkingLot.spot.ParkingSpot;
-import main.java.parkingLot.vehicle.Vehicle;
-import main.java.parkingLot.spot.ParkingSpot;
-import main.java.parkingLot.vehicle.Vehicle;
+import src.main.java.parkingLot.spot.ParkingSpot;
+import src.main.java.parkingLot.vehicle.Vehicle;
 
 import java.math.BigDecimal;
 import java.time.Duration;

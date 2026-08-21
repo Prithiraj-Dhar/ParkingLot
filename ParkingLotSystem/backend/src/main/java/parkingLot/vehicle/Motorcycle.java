@@ -1,10 +1,10 @@
-package main.java.parkingLot.vehicle;
+package src.main.java.parkingLot.vehicle;
 
-public class Truck implements Vehicle {
+public class Motorcycle implements Vehicle {
 
     private final String licensePlate;
 
-    public Truck(String licensePlate) {
+    public Motorcycle(String licensePlate) {
         this.licensePlate = licensePlate;
     }
 
@@ -15,6 +15,6 @@ public class Truck implements Vehicle {
 
     @Override
     public VehicleSize getSize() {
-        return VehicleSize.LARGE;
+        return VehicleSize.SMALL;
     }
 }

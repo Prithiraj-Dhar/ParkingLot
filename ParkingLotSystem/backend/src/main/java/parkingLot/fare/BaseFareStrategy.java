@@ -1,7 +1,6 @@
-package main.java.parkingLot.fare;
+package src.main.java.parkingLot.fare;
 
-import main.java.parkingLot.Ticket;
-import main.java.parkingLot.vehicle.VehicleSize;
+import src.main.java.parkingLot.Ticket;
 
 import java.math.BigDecimal;
 
