@@ -1,7 +1,7 @@
-package main.java.parkingLot.spot;
+package src.main.java.parkingLot.spot;
 
-import main.java.parkingLot.vehicle.Vehicle;
-import main.java.parkingLot.vehicle.VehicleSize;
+import src.main.java.parkingLot.vehicle.Vehicle;
+import src.main.java.parkingLot.vehicle.VehicleSize;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,22 +1,18 @@
-package test.java.parkingLot;
-
-import main.java.parkingLot.ParkingLot;
-import main.java.parkingLot.Ticket;
-
-import main.java.parkingLot.fare.BaseFareStrategy;
-import main.java.parkingLot.fare.FareCalculator;
-import main.java.parkingLot.fare.FareStrategy;
-import main.java.parkingLot.fare.PeakHoursFareStrategy;
-
-import main.java.parkingLot.spot.ParkingManager;
-import main.java.parkingLot.spot.ParkingSpot;
-import main.java.parkingLot.spot.RegularSpot;
-
-import main.java.parkingLot.vehicle.Car;
-import main.java.parkingLot.vehicle.Vehicle;
-import main.java.parkingLot.vehicle.VehicleSize;
+package src.test.java.parkingLot;
 
 import org.junit.jupiter.api.Test;
+import src.main.java.parkingLot.ParkingLot;
+import src.main.java.parkingLot.Ticket;
+import src.main.java.parkingLot.fare.BaseFareStrategy;
+import src.main.java.parkingLot.fare.FareCalculator;
+import src.main.java.parkingLot.fare.FareStrategy;
+import src.main.java.parkingLot.fare.PeakHoursFareStrategy;
+import src.main.java.parkingLot.spot.ParkingManager;
+import src.main.java.parkingLot.spot.ParkingSpot;
+import src.main.java.parkingLot.spot.RegularSpot;
+import src.main.java.parkingLot.vehicle.Car;
+import src.main.java.parkingLot.vehicle.Vehicle;
+import src.main.java.parkingLot.vehicle.VehicleSize;
 
 import java.util.ArrayList;
 import java.util.HashMap;
