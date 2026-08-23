@@ -5,6 +5,8 @@ A complete Parking Lot Management System designed as a full-stack software proje
 The project is built with a **Java backend**, **JUnit 5 testing**, and a **vanilla HTML/CSS/JavaScript frontend**. The architecture is designed to keep the core parking logic independent from the user interface.
 
 ---
+## 📌 Complete Class Diagram
+<img width="694" height="607" alt="image" src="https://github.com/user-attachments/assets/de0d878d-ac11-4ed7-8c11-5717f4856220" />
 
 ## 📌 Project Overview
 
@@ -150,7 +152,7 @@ The project follows a separation-of-concerns approach.
 
 ```text
 ┌──────────────────────────────────────────────────────────┐
-│                      Presentation                         │
+│                      Presentation                        │
 │                                                          │
 │                  HTML + CSS + JavaScript                 │
 └───────────────────────────┬──────────────────────────────┘
@@ -158,7 +160,7 @@ The project follows a separation-of-concerns approach.
                             │ HTTP / JSON
                             ▼
 ┌──────────────────────────────────────────────────────────┐
-│                         API Layer                         │
+│                         API Layer                        │
 │                                                          │
 │                  REST / HTTP Endpoints                   │
 └───────────────────────────┬──────────────────────────────┘
@@ -167,14 +169,14 @@ The project follows a separation-of-concerns approach.
 ┌──────────────────────────────────────────────────────────┐
 │                     Business Layer                       │
 │                                                          │
-│  ParkingLot │ ParkingManager │ FareCalculator │ Ticket │
+│  ParkingLot │ ParkingManager │ FareCalculator │ Ticket   │
 └───────────────────────────┬──────────────────────────────┘
                             │
                             ▼
 ┌──────────────────────────────────────────────────────────┐
-│                       Domain Layer                        │
+│                       Domain Layer                       │
 │                                                          │
-│     Vehicle │ ParkingSpot │ VehicleSize │ FareStrategy │
+│     Vehicle │ ParkingSpot │ VehicleSize │ FareStrategy   │
 └──────────────────────────────────────────────────────────┘
 ```
 
@@ -196,6 +198,8 @@ ParkingLotSystem/
 │   │   │           │
 │   │   │           ├── ParkingLot.java
 │   │   │           ├── Ticket.java
+|   |   |           ├── ParkingLotSever/
+|   |   |           |   ├── Server.java
 │   │   │           │
 │   │   │           ├── fare/
 │   │   │           │   ├── FareStrategy.java
@@ -233,8 +237,7 @@ ParkingLotSystem/
 │       └── app.js
 │
 ├── .gitignore
-├── README.md
-└── LICENSE
+└── README.md
 ```
 
 ---
@@ -349,16 +352,6 @@ Fare calculation uses the Strategy Pattern.
 The `FareCalculator` can execute multiple strategies sequentially.
 
 This makes it easy to introduce new pricing rules without heavily modifying existing code.
-
-Possible future strategies:
-
-```text
-WeekendFareStrategy
-HolidayFareStrategy
-VIPFareStrategy
-LongStayDiscountStrategy
-ElectricVehicleStrategy
-```
 
 ---
 
@@ -523,20 +516,6 @@ Right Click ParkingLotTest.java
 Run 'ParkingLotTest'
 ```
 
-Or with Gradle:
-
-### Windows
-
-```bash
-gradlew.bat test
-```
-
-### Linux/macOS
-
-```bash
-./gradlew test
-```
-
 ---
 
 # ⚙️ Requirements
@@ -545,7 +524,6 @@ Recommended development environment:
 
 - Java JDK 26
 - IntelliJ IDEA
-- Gradle
 - Git
 - Modern web browser
 
@@ -553,12 +531,6 @@ Check Java:
 
 ```bash
 java -version
-```
-
-Check Gradle:
-
-```bash
-gradle -version
 ```
 
 ---
@@ -585,7 +557,6 @@ Recommended:
 
 ```text
 Project SDK → JDK 26
-Gradle JVM  → JDK 26
 ```
 
 ## 3. Build the backend
@@ -704,89 +675,6 @@ A production implementation should return appropriate HTTP status codes such as:
 
 ---
 
-# 📈 Future Roadmap
-
-## Core Features
-
-- [ ] Multiple parking floors
-- [ ] Multiple entrances
-- [ ] Multiple exits
-- [ ] Reserved parking
-- [ ] VIP parking
-- [ ] Electric vehicle charging spots
-- [ ] Parking history
-- [ ] Monthly subscriptions
-- [ ] Discount system
-
-## Backend
-
-- [ ] REST API
-- [ ] Database persistence
-- [ ] PostgreSQL/MySQL
-- [ ] JPA/Hibernate
-- [ ] DTO layer
-- [ ] Global exception handling
-- [ ] Logging
-- [ ] API documentation
-- [ ] Authentication and authorization
-
-## Frontend
-
-- [ ] Responsive dashboard
-- [ ] Real-time spot availability
-- [ ] Vehicle search
-- [ ] Parking history
-- [ ] Revenue dashboard
-- [ ] Admin dashboard
-- [ ] Dark mode
-- [ ] Mobile-friendly interface
-
-## DevOps
-
-- [ ] Docker
-- [ ] Docker Compose
-- [ ] GitHub Actions
-- [ ] CI/CD
-- [ ] Nginx
-- [ ] Cloud deployment
-- [ ] Monitoring
-
----
-
-# 🔐 Production Considerations
-
-For production deployment, the following should be considered:
-
-- HTTPS
-- Authentication
-- Authorization
-- Input validation
-- Rate limiting
-- Secure HTTP headers
-- Database transactions
-- Concurrency control
-- Logging and monitoring
-- Centralized exception handling
-- Database backups
-
-For a large-scale parking system, the architecture can evolve into:
-
-```text
-                         Load Balancer
-                              │
-                ┌─────────────┴─────────────┐
-                │                           │
-          Backend API                  Backend API
-                │                           │
-                └─────────────┬─────────────┘
-                              │
-                        PostgreSQL
-                              │
-                         Redis Cache
-```
-
----
-
 # 🛠️ Technology Stack
 
 ## Backend
@@ -837,59 +725,6 @@ This project is intended to demonstrate practical understanding of:
 - Vanilla JavaScript
 - Software architecture
 - Git and version control
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome.
-
-1. Fork the repository.
-2. Create a feature branch.
-
-```bash
-git checkout -b feature/new-feature
-```
-
-3. Make your changes.
-4. Add or update tests.
-5. Commit your changes.
-
-```bash
-git commit -m "feat: add new parking feature"
-```
-
-6. Push the branch.
-
-```bash
-git push origin feature/new-feature
-```
-
-7. Open a Pull Request.
-
----
-
-# 📄 License
-
-This project is licensed under the MIT License.
-
-See the `LICENSE` file for details.
-
----
-
-# 👨‍💻 Author
-
-**Prithiraj Dhar**
-
-Computer Science & Engineering Student
-
-Interested in:
-
-- Backend Engineering
-- System Design
-- DevOps
-- Cloud Computing
-- AI Engineering
 
 ---
 

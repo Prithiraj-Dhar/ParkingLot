@@ -9,8 +9,13 @@ import src.main.java.parkingLot.vehicle.Vehicle;
 import java.math.BigDecimal;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class ParkingLot {
+
+    // Monotonically increasing counter so concurrent entries
+    // in the same millisecond can't collide on ticket ID.
+    private static final AtomicLong TICKET_SEQUENCE = new AtomicLong(1);
     private final ParkingManager parkingManager; // Manages parking spots and vehicle assignments
     private final FareCalculator fareCalculator; // Calculates fare for parking sessions
 
@@ -34,23 +39,29 @@ public class ParkingLot {
     }
 
     // Method to handle vehicle exit from the parking lot using the main.parkinglot.fare.Ticket object
-    public void leaveVehicle(Ticket ticket) {
+    // Returns the calculated fare, or null if the ticket was invalid / already exited.
+    public BigDecimal leaveVehicle(Ticket ticket) {
         if (ticket != null && ticket.getExitTime() == null) {  // Ensure the ticket is valid and the vehicle hasn't already left
             // Set exit time
             ticket.setExitTime(LocalDateTime.now());
-            
+
+            // Calculate the fare BEFORE unparking, so fare strategies
+            // could safely inspect spot/vehicle state if ever needed.
+            BigDecimal fare = fareCalculator.calculateFare(ticket);
+            ticket.setFare(fare);
+
             // Delegate unparking logic to ParkingManager
             parkingManager.unparkVehicle(ticket.getVehicle());
 
-            // Calculate the fare
-            BigDecimal fare = fareCalculator.calculateFare(ticket);
+            return fare;
         } else {
-            // Invalid ticket or vehicle already exited. 
+            // Invalid ticket or vehicle already exited.
+            return null;
         }
     }
 
     // Helper method to generate a unique ticket ID
     private String generateTicketId() {
-        return "TICKET-" + System.currentTimeMillis();
+        return "T" + TICKET_SEQUENCE.getAndIncrement();
     }
 }
