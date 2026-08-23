@@ -14,6 +14,7 @@ public class Ticket {
     private final ParkingSpot parkingSpot; // The parking spot where the vehicle is parked
     private final LocalDateTime entryTime; // The time the vehicle entered the parking lot
     private LocalDateTime exitTime;  // The time the vehicle exited the parking lot (null if vehicle is still parked)
+    private BigDecimal fare;         // The final calculated fare (null until the vehicle exits)
 
     // Constructor to initialize a new ticket
     public Ticket(String ticketId, Vehicle vehicle, ParkingSpot parkingSpot, LocalDateTime entryTime) {
@@ -48,6 +49,14 @@ public class Ticket {
 
     public void setExitTime(LocalDateTime exitTime) {
         this.exitTime = exitTime;
+    }
+
+    public BigDecimal getFare() {
+        return fare;
+    }
+
+    public void setFare(BigDecimal fare) {
+        this.fare = fare;
     }
 
     public BigDecimal calculateParkingDuration() {
