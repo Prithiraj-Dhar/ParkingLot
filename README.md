@@ -152,7 +152,7 @@ The project follows a separation-of-concerns approach.
 
 ```text
 ┌──────────────────────────────────────────────────────────┐
-│                      Presentation                         │
+│                      Presentation                        │
 │                                                          │
 │                  HTML + CSS + JavaScript                 │
 └───────────────────────────┬──────────────────────────────┘
@@ -160,7 +160,7 @@ The project follows a separation-of-concerns approach.
                             │ HTTP / JSON
                             ▼
 ┌──────────────────────────────────────────────────────────┐
-│                         API Layer                         │
+│                         API Layer                        │
 │                                                          │
 │                  REST / HTTP Endpoints                   │
 └───────────────────────────┬──────────────────────────────┘
@@ -169,14 +169,14 @@ The project follows a separation-of-concerns approach.
 ┌──────────────────────────────────────────────────────────┐
 │                     Business Layer                       │
 │                                                          │
-│  ParkingLot │ ParkingManager │ FareCalculator │ Ticket │
+│  ParkingLot │ ParkingManager │ FareCalculator │ Ticket   │
 └───────────────────────────┬──────────────────────────────┘
                             │
                             ▼
 ┌──────────────────────────────────────────────────────────┐
-│                       Domain Layer                        │
+│                       Domain Layer                       │
 │                                                          │
-│     Vehicle │ ParkingSpot │ VehicleSize │ FareStrategy │
+│     Vehicle │ ParkingSpot │ VehicleSize │ FareStrategy   │
 └──────────────────────────────────────────────────────────┘
 ```
 
@@ -198,6 +198,8 @@ ParkingLotSystem/
 │   │   │           │
 │   │   │           ├── ParkingLot.java
 │   │   │           ├── Ticket.java
+|   |   |           ├── ParkingLotSever/
+|   |   |           |   ├── Server.java
 │   │   │           │
 │   │   │           ├── fare/
 │   │   │           │   ├── FareStrategy.java
@@ -235,8 +237,7 @@ ParkingLotSystem/
 │       └── app.js
 │
 ├── .gitignore
-├── README.md
-└── LICENSE
+└── README.md
 ```
 
 ---
@@ -523,7 +524,6 @@ Recommended development environment:
 
 - Java JDK 26
 - IntelliJ IDEA
-- Gradle
 - Git
 - Modern web browser
 
@@ -531,12 +531,6 @@ Check Java:
 
 ```bash
 java -version
-```
-
-Check Gradle:
-
-```bash
-gradle -version
 ```
 
 ---
@@ -563,7 +557,6 @@ Recommended:
 
 ```text
 Project SDK → JDK 26
-Gradle JVM  → JDK 26
 ```
 
 ## 3. Build the backend
@@ -732,35 +725,6 @@ This project is intended to demonstrate practical understanding of:
 - Vanilla JavaScript
 - Software architecture
 - Git and version control
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome.
-
-1. Fork the repository.
-2. Create a feature branch.
-
-```bash
-git checkout -b feature/new-feature
-```
-
-3. Make your changes.
-4. Add or update tests.
-5. Commit your changes.
-
-```bash
-git commit -m "feat: add new parking feature"
-```
-
-6. Push the branch.
-
-```bash
-git push origin feature/new-feature
-```
-
-7. Open a Pull Request.
 
 ---
 
